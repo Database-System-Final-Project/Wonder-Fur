@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_24755dea8b833cb717a636e4c3ec0776 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_24755dea8b833cb717a636e4c3ec0776" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_24755dea8b833cb717a636e4c3ec0776 = L.map(
+                "map_24755dea8b833cb717a636e4c3ec0776",
+                {
+                    center: [25.035701104544206, 121.54313042335117],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f496f01ed20f3cf1eaa085da36d6c5b6 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_f496f01ed20f3cf1eaa085da36d6c5b6.addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+            var marker_2223f771628837283e14cfc90c9193c3 = L.marker(
+                [25.03194895, 121.5421290667586],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_66e7803c83894b3d8bb2befd78e2212f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8d9a916908db8f5385a6732964e8a3d0 = $(`<div id="html_8d9a916908db8f5385a6732964e8a3d0" style="width: 100.0%; height: 100.0%;">賈福廚房 JFULL</div>`)[0];
+                popup_66e7803c83894b3d8bb2befd78e2212f.setContent(html_8d9a916908db8f5385a6732964e8a3d0);
+            
+        
+
+        marker_2223f771628837283e14cfc90c9193c3.bindPopup(popup_66e7803c83894b3d8bb2befd78e2212f)
+        ;
+
+        
+    
+    
+            marker_2223f771628837283e14cfc90c9193c3.bindTooltip(
+                `<div>
+                     台北市大安區復興南路二段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e136359b1a1c5ba8e5e47cc937c5d3f3 = L.marker(
+                [25.0233477, 121.53530431351457],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_ae126c50ebad838c29bdb8619fa3ca0c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aa6dbc499b57ceb8f1fd498a2970e3f7 = $(`<div id="html_aa6dbc499b57ceb8f1fd498a2970e3f7" style="width: 100.0%; height: 100.0%;">光一肆號</div>`)[0];
+                popup_ae126c50ebad838c29bdb8619fa3ca0c.setContent(html_aa6dbc499b57ceb8f1fd498a2970e3f7);
+            
+        
+
+        marker_e136359b1a1c5ba8e5e47cc937c5d3f3.bindPopup(popup_ae126c50ebad838c29bdb8619fa3ca0c)
+        ;
+
+        
+    
+    
+            marker_e136359b1a1c5ba8e5e47cc937c5d3f3.bindTooltip(
+                `<div>
+                     台北市大安區新生南路三段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fdf61be0c38ce1689551541ad67d4b8d = L.marker(
+                [25.04320294998675, 121.5576586083291],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_762bfe89347eae53e17200761a9f1181 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fb83a49ec0076bdd0198a418bff2ff2a = $(`<div id="html_fb83a49ec0076bdd0198a418bff2ff2a" style="width: 100.0%; height: 100.0%;">Toast Chat</div>`)[0];
+                popup_762bfe89347eae53e17200761a9f1181.setContent(html_fb83a49ec0076bdd0198a418bff2ff2a);
+            
+        
+
+        marker_fdf61be0c38ce1689551541ad67d4b8d.bindPopup(popup_762bfe89347eae53e17200761a9f1181)
+        ;
+
+        
+    
+    
+            marker_fdf61be0c38ce1689551541ad67d4b8d.bindTooltip(
+                `<div>
+                     台北市大安區光復南路
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_574cef6f702ccd6e2848bf8be0ff1366 = L.marker(
+                [25.033105958874025, 121.55339420804869],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_326aa67362d6dda838d6a56cb7e27319 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c638ec67985e1855bf44cfd3fe34b973 = $(`<div id="html_c638ec67985e1855bf44cfd3fe34b973" style="width: 100.0%; height: 100.0%;">Become早午餐</div>`)[0];
+                popup_326aa67362d6dda838d6a56cb7e27319.setContent(html_c638ec67985e1855bf44cfd3fe34b973);
+            
+        
+
+        marker_574cef6f702ccd6e2848bf8be0ff1366.bindPopup(popup_326aa67362d6dda838d6a56cb7e27319)
+        ;
+
+        
+    
+    
+            marker_574cef6f702ccd6e2848bf8be0ff1366.bindTooltip(
+                `<div>
+                     台北市大安區信義路四段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2918b1bdd7cb4724aa39744067b21f63 = L.marker(
+                [25.0333251, 121.54855505],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_b73034e8df819ac586b8c19cb5b969fb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_671ed9da48ec20edcebe93a0f1fcb7f5 = $(`<div id="html_671ed9da48ec20edcebe93a0f1fcb7f5" style="width: 100.0%; height: 100.0%;">貳樓咖啡（敦南店）</div>`)[0];
+                popup_b73034e8df819ac586b8c19cb5b969fb.setContent(html_671ed9da48ec20edcebe93a0f1fcb7f5);
+            
+        
+
+        marker_2918b1bdd7cb4724aa39744067b21f63.bindPopup(popup_b73034e8df819ac586b8c19cb5b969fb)
+        ;
+
+        
+    
+    
+            marker_2918b1bdd7cb4724aa39744067b21f63.bindTooltip(
+                `<div>
+                     台北市大安區敦化南路二段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7d0bf6e0f02c2d8a4f2d44efc5d4fc79 = L.marker(
+                [25.033355738654592, 121.54068749946612],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_c5259ce5580ba92c5436db626a367c9f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9ec2d079859757b4074004b98b926627 = $(`<div id="html_9ec2d079859757b4074004b98b926627" style="width: 100.0%; height: 100.0%;">小春日和</div>`)[0];
+                popup_c5259ce5580ba92c5436db626a367c9f.setContent(html_9ec2d079859757b4074004b98b926627);
+            
+        
+
+        marker_7d0bf6e0f02c2d8a4f2d44efc5d4fc79.bindPopup(popup_c5259ce5580ba92c5436db626a367c9f)
+        ;
+
+        
+    
+    
+            marker_7d0bf6e0f02c2d8a4f2d44efc5d4fc79.bindTooltip(
+                `<div>
+                     台北市大安區信義路三段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7274fc645f184556fe597a17de1bbafb = L.marker(
+                [25.038599, 121.535631],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_cd22c79c155b340d4669f516a722e754 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_063d930fedc6df5e09b7467cd15d1741 = $(`<div id="html_063d930fedc6df5e09b7467cd15d1741" style="width: 100.0%; height: 100.0%;">Mianto 艾果豐</div>`)[0];
+                popup_cd22c79c155b340d4669f516a722e754.setContent(html_063d930fedc6df5e09b7467cd15d1741);
+            
+        
+
+        marker_7274fc645f184556fe597a17de1bbafb.bindPopup(popup_cd22c79c155b340d4669f516a722e754)
+        ;
+
+        
+    
+    
+            marker_7274fc645f184556fe597a17de1bbafb.bindTooltip(
+                `<div>
+                     台北市大安區仁愛路
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_93c3f9f6be14d48c67279f444235134e = L.marker(
+                [25.04333128436147, 121.54389343580793],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_b870b53b173d32b33517f98d9f438058 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_46475aa998fc56060f9a6285b043a5dc = $(`<div id="html_46475aa998fc56060f9a6285b043a5dc" style="width: 100.0%; height: 100.0%;">Luigi 路易奇電力公司</div>`)[0];
+                popup_b870b53b173d32b33517f98d9f438058.setContent(html_46475aa998fc56060f9a6285b043a5dc);
+            
+        
+
+        marker_93c3f9f6be14d48c67279f444235134e.bindPopup(popup_b870b53b173d32b33517f98d9f438058)
+        ;
+
+        
+    
+    
+            marker_93c3f9f6be14d48c67279f444235134e.bindTooltip(
+                `<div>
+                     台北市大安區復興南路一段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_bc95839631039e00a46393c7286c44ae = L.marker(
+                [25.032800438292195, 121.55077794534427],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_7250ffdeb107e3ca216b1900e1bbaafd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_234b3f2436a2eff421fe66b5ded60ae4 = $(`<div id="html_234b3f2436a2eff421fe66b5ded60ae4" style="width: 100.0%; height: 100.0%;">舒服生活 Truffles Living</div>`)[0];
+                popup_7250ffdeb107e3ca216b1900e1bbaafd.setContent(html_234b3f2436a2eff421fe66b5ded60ae4);
+            
+        
+
+        marker_bc95839631039e00a46393c7286c44ae.bindPopup(popup_7250ffdeb107e3ca216b1900e1bbaafd)
+        ;
+
+        
+    
+    
+            marker_bc95839631039e00a46393c7286c44ae.bindTooltip(
+                `<div>
+                     台北市大安區文昌街
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1fb8ced6bc75fab3c7b6c02dc3020b0e = L.marker(
+                [25.04231625, 121.53291585],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_4224b4f57c3b49d3a7dcd16a273ad981 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7977eed8e4e5517d3076b3221fc56d6f = $(`<div id="html_7977eed8e4e5517d3076b3221fc56d6f" style="width: 100.0%; height: 100.0%;">兔 Dreams 寵物餐廳</div>`)[0];
+                popup_4224b4f57c3b49d3a7dcd16a273ad981.setContent(html_7977eed8e4e5517d3076b3221fc56d6f);
+            
+        
+
+        marker_1fb8ced6bc75fab3c7b6c02dc3020b0e.bindPopup(popup_4224b4f57c3b49d3a7dcd16a273ad981)
+        ;
+
+        
+    
+    
+            marker_1fb8ced6bc75fab3c7b6c02dc3020b0e.bindTooltip(
+                `<div>
+                     台北市大安區新生南路一段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fe4cf51a2bd78cda6c1191b364f78ae9 = L.marker(
+                [25.029748599999998, 121.53272466713736],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_eebf4087c7ae6a6fd48529791f9f11a8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_27a231d4144eb6fddef68e4af316bb4b = $(`<div id="html_27a231d4144eb6fddef68e4af316bb4b" style="width: 100.0%; height: 100.0%;">慵懶咖啡 Lazzy Cafe</div>`)[0];
+                popup_eebf4087c7ae6a6fd48529791f9f11a8.setContent(html_27a231d4144eb6fddef68e4af316bb4b);
+            
+        
+
+        marker_fe4cf51a2bd78cda6c1191b364f78ae9.bindPopup(popup_eebf4087c7ae6a6fd48529791f9f11a8)
+        ;
+
+        
+    
+    
+            marker_fe4cf51a2bd78cda6c1191b364f78ae9.bindTooltip(
+                `<div>
+                     台北市大安區新生南路二段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0945cd6b520780d041940ac62efb920f = L.marker(
+                [25.04333128436147, 121.54389343580793],
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+        
+    
+        var popup_5f7d4099a58446a5e5da9847cb9baf09 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5b3de8b3c6f52da5e872280081887e7b = $(`<div id="html_5b3de8b3c6f52da5e872280081887e7b" style="width: 100.0%; height: 100.0%;">The Antipodean</div>`)[0];
+                popup_5f7d4099a58446a5e5da9847cb9baf09.setContent(html_5b3de8b3c6f52da5e872280081887e7b);
+            
+        
+
+        marker_0945cd6b520780d041940ac62efb920f.bindPopup(popup_5f7d4099a58446a5e5da9847cb9baf09)
+        ;
+
+        
+    
+    
+            marker_0945cd6b520780d041940ac62efb920f.bindTooltip(
+                `<div>
+                     台北市大安區復興南路一段
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var locate_control_bb7797e7d5bf037177cca94455c539d4 = L.control.locate(
+                {}
+            ).addTo(map_24755dea8b833cb717a636e4c3ec0776);
+            
+        
+</script>
+</html>
