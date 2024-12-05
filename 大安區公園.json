@@ -1,0 +1,58 @@
+[
+    {
+        "Park Name": "大安森林公園",
+        "Address":"台北市大安區新生南路二段1號",
+        "pm_Longitude": "121.5358429000",
+        "pm_Latitude": "25.0333004000",
+        "Opening hours": "00:00-24:00"
+    },
+    {
+        "Park Name": "古風公園",
+        "Address":"台北市大安區龍泉街",
+        "pm_Longitude": "121.5290527300",
+        "pm_Latitude": "25.0219707490",
+        "Opening hours": "00:00-24:00"
+    },
+    {
+        "Park Name": "居安公園",
+        "Address":"台北市大安區敦化南路二段81巷",
+        "pm_Longitude": "121.5493316700",
+        "pm_Latitude": "25.0296802520",
+        "Opening hours": "00:00-24:00"
+    },
+    {
+        "Park Name": "富陽自然生態公園",
+        "Address":"台北市大安區臥龍街272巷",
+        "pm_Longitude": "121.5574880000",
+        "pm_Latitude": "25.0166740000",
+        "Opening hours": "00:00-24:00"
+    },
+    {
+        "Park Name": "新龍公園",
+        "Address":"台北市大安區瑞安街214巷",
+        "pm_Longitude": "121.5401611300",
+        "pm_Latitude": "25.0276508330",
+        "Opening hours": "00:00-24:00"
+    },
+    {
+        "Park Name": "福州山公園",
+        "Address":"台北市大安區臥龍街195巷",
+        "pm_Longitude": "121.5516128500",
+        "pm_Latitude": "25.0158901210",
+        "Opening hours": "00:00-24:00"
+    },
+    {
+        "Park Name": "大安195號綠地",
+        "Address":"台北市大安區羅斯福路三段269巷70號",
+        "pm_Longitude": "121.5314331100",
+        "pm_Latitude": "25.0200195310",
+        "Opening hours": "00:00-24:00"
+    },
+    {
+        "Park Name": "黎和綠地",
+        "Address":"台北市大安區和平東路三段464巷旁",
+        "pm_Longitude": "121.5605697600",
+        "pm_Latitude": "25.0159301760",
+        "Opening hours": "00:00-24:00"
+    }
+]
