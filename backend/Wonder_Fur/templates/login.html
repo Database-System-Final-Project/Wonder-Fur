@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登入</title>
+</head>
+<body>
+    <h1>登入</h1>
+    <form method="post">
+        <input type="email" name="email" placeholder="電子郵件" required><br>
+        <input type="password" name="password" placeholder="密碼" required><br>
+        <button type="submit">登入</button>
+    </form>
+    <a href="{{ url_for('register') }}">還沒有帳號？點擊註冊</a>
+</body>
+</html>
