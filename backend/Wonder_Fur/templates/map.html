@@ -11,7 +11,7 @@
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
-      }
+      }     
 
       /* Header styles */
       .header-container {
@@ -37,6 +37,7 @@
         font-weight: bold;
         font-size: 32px;
       }
+    
 
       /* User Info */
       .user-info {
@@ -72,6 +73,48 @@
         border: 1px solid #ccc;
         border-radius: 10px;
       }
+
+      /* Information Panel Overlay */
+      #info-panel {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 300px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        z-index: 1000;
+        display: none; /* Hidden by default */
+      }
+
+      #info-panel h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      #info-panel .info-item {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+      }
+
+      #info-panel button {
+        margin-top: 10px;
+        background-color: #ffcc00;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      #info-panel button:hover {
+        background-color: #e6b800;
+      }
     </style>
   </head>
   <body>
@@ -86,93 +129,125 @@
         <h1 class="header-title">Wonder Fur 汪得福 - Your Pet Assistant</h1>
       </a>
 
-    <!-- User Info Section -->
-    <div class="user-info">
-      <span>Hello, {{ session.get('username', 'Guest') }}</span>
-      
-      <!-- Log out 按鈕 -->
-      {% if session.get('username') %}
-      <form action="{{ url_for('logout') }}" method="POST" style="display: inline;">
-        <button type="submit" class="logout-button">Log out</button>
-      </form>
-      
-      <!-- Modify Account 按鈕 -->
-      <button 
-        id="modifyButton" 
-        class="modify-button" 
-        data-url="{{ url_for('modify') }}">
-        Modify Account
-      </button>
-      {% else %}
-      
-      <!-- Login 按鈕 -->
-      <button 
-        id="loginButton" 
-        class="login-button" 
-        data-url="{{ url_for('login') }}">
-        Login
-      </button>
-      {% endif %}
-    </div>
+      <!-- User Info Section -->
+      <div class="user-info">
+        <span>Hello, {{ session.get('username', 'Guest') }}!</span>
+        
+        <!-- Log out 按鈕 -->
+        {% if session.get('username') %}
+        <form action="{{ url_for('logout') }}" method="POST" style="display: inline;">
+          <button type="submit" class="logout-button">Log out</button>
+        </form>
+        
+        <!-- Modify Account 按鈕 -->
+        <button 
+          id="modifyButton" 
+          class="modify-button" 
+          data-url="{{ url_for('modify') }}">
+          Modify Account
+        </button>
+        
+        <!-- Add Favorites 按鈕 -->
+        <button 
+          id="favoritesButton" 
+          class="favorites-button" 
+          data-url="{{ url_for('favorites_view') }}">
+          Favorites
+        </button>
+        
+        {% else %}
+        
+        <!-- Login 按鈕 -->
+        <button 
+          id="loginButton" 
+          class="login-button" 
+          data-url="{{ url_for('login') }}">
+          Login
+        </button>
+        {% endif %}
+      </div>
 
-    <!-- JavaScript -->
-    <script>
-      // Modify Account 按鈕事件
-      const modifyButton = document.getElementById('modifyButton');
-      if (modifyButton) {
-        modifyButton.addEventListener('click', function () {
-          const modifyUrl = this.getAttribute('data-url');
-          location.href = modifyUrl; // 跳轉到 modify 頁面
-        });
-      }
+      <!-- JavaScript -->
+      <script>
+        // Modify Account 按鈕事件
+        const modifyButton = document.getElementById('modifyButton');
+        if (modifyButton) {
+          modifyButton.addEventListener('click', function () {
+            const modifyUrl = this.getAttribute('data-url');
+            location.href = modifyUrl; // 跳轉到 modify 頁面
+          });
+        }
 
-      // Login 按鈕事件
-      const loginButton = document.getElementById('loginButton');
-      if (loginButton) {
-        loginButton.addEventListener('click', function () {
-          const loginUrl = this.getAttribute('data-url');
-          location.href = loginUrl; // 跳轉到 login 頁面
-        });
-      }
-    </script>
+        // Login 按鈕事件
+        const loginButton = document.getElementById('loginButton');
+        if (loginButton) {
+          loginButton.addEventListener('click', function () {
+            const loginUrl = this.getAttribute('data-url');
+            location.href = loginUrl; // 跳轉到 login 頁面
+          });
+        }
 
-    <!-- CSS -->
-    <style>      
-      .logout-button, .modify-button, .login-button {
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin-left: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        height: 40px;
-        line-height: 1.5;
-      }
+        // Favorites 按鈕事件
+        const favoritesButton = document.getElementById('favoritesButton');
+        if (favoritesButton) {
+          favoritesButton.addEventListener('click', function () {
+            const favoritesUrl = this.getAttribute('data-url');
+            location.href = favoritesUrl; // 跳轉到 Favorites 頁面
+          });
+        }
+      </script>
 
-      /* 各按鈕顏色 */
-      .logout-button {
-        background-color: #dc3545;
-      }
-      .logout-button:hover {
-        background-color: #bd2130;
-      }
-      .modify-button {
-        background-color: #1e6831;
-      }
-      .modify-button:hover {
-        background-color: #145922;
-      }
-      .login-button {
-        background-color: #007bff;
-      }
-      .login-button:hover {
-        background-color: #0056b3;
-      }
-    </style>
+      <!-- CSS -->
+      <style>      
+        .logout-button, .modify-button, .login-button {
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          margin-left: 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          height: 40px;
+          line-height: 1.5;
+        }
 
-          
-        </header>
+        /* 各按鈕顏色 */
+        .logout-button {
+          background-color: #dc3545;
+        }
+        .logout-button:hover {
+          background-color: #bd2130;
+        }
+        .modify-button {
+          background-color: #1e6831;
+        }
+        .modify-button:hover {
+          background-color: #145922;
+        }
+        .login-button {
+          background-color: #007bff;
+        }
+        .login-button:hover {
+          background-color: #0056b3;
+        }
+        .favorites-button {
+          background-color: #ff9800;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          margin-left: 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+
+        .favorites-button:hover {
+          background-color: #e68900;
+        }
+      </style>
+
+            
+    </header>
         
     <!-- Main Content -->
     <main>
@@ -183,37 +258,96 @@
       </div>
     </main>
 
+    <!-- Information Panel -->
+    <div id="info-panel">
+      <h2>Location Details</h2>
+      <div id="info-content">
+        <p>Select a location on the map to view details here.</p>
+      </div>
+    </div>
+
     <script>
-      function saveFavorite(category, name, address, latitude, longitude, extra) {
+      // Initialize the map
+      const map = L.map('map').setView([25.033964, 121.564468], 14);
+
+      // Add OpenStreetMap tiles
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+      }).addTo(map);
+
+      // Add markers with click events
+      const locations = [
+        {
+          name: "Park A",
+          address: "123 Park Lane",
+          latitude: 25.033964,
+          longitude: 121.564468,
+          category: "Park",
+        },
+        {
+          name: "Hospital B",
+          address: "456 Health Road",
+          latitude: 25.034864,
+          longitude: 121.564868,
+          category: "Hospital",
+        },
+      ];
+
+      locations.forEach((location) => {
+        const marker = L.marker([location.latitude, location.longitude]).addTo(map);
+        marker.on("click", () => {
+          updateInfoPanel(location);
+        });
+      });
+
+      // Function to update the info panel
+      function updateInfoPanel(location) {
+        const infoPanel = document.getElementById("info-panel");
+        const infoContent = document.getElementById("info-content");
+
+        infoContent.innerHTML = `
+          <div class="info-item">
+            <p><strong>Name:</strong> ${location.name}</p>
+            <p><strong>Address:</strong> ${location.address}</p>
+            <p><strong>Category:</strong> ${location.category}</p>
+            <button onclick="saveFavorite('${location.category}', '${location.name}', '${location.address}', ${location.latitude}, ${location.longitude})">
+              Save to Favorites
+            </button>
+          </div>
+        `;
+
+        // Show the info panel
+        infoPanel.style.display = "block";
+      }
+
+      // Function to save favorites
+      function saveFavorite(category, name, address, latitude, longitude) {
         const data = {
-            category: category,
-            name: name,
-            address: address,
-            latitude: latitude,
-            longitude: longitude,
-            extra: extra  // 可為 null 或其他附加信息
+          category: category,
+          name: name,
+          address: address,
+          latitude: latitude,
+          longitude: longitude,
         };
 
         $.ajax({
-            url: '/save_favorite',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function(response) {
-                if (response.status === 'redirect') {
-                    alert(response.message);
-                    window.location.href = response.url;
-                } else {
-                    alert('收藏成功！');
-                }
-            },
-            error: function() {
-                alert('收藏失敗，請稍後再試！');
+          url: "/save_favorite",
+          method: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(data),
+          success: function (response) {
+            if (response.status === "success") {
+              alert("Location saved to favorites!");
+            } else if (response.status === "redirect") {
+              alert(response.message);
+              window.location.href = response.url;
             }
+          },
+          error: function () {
+            alert("Failed to save location. Please try again later.");
+          },
         });
-     }
-
-
+      }
     </script>
   </body>
 </html>

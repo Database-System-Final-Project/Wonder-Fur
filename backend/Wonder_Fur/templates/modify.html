@@ -30,9 +30,27 @@
           font-size: 3.5rem;
         }
       }
+      .back-to-map {
+        background-color: #ffcc00; /* 黃色背景 */
+        color: black; /* 黑色文字 */
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px; /* 圓角 */
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .back-to-map:hover {
+        background-color: #e6b800; /* 加深的黃色 */
+      }
     </style>
   </head>
   <body>
+    <header class="p-3 bg-light border-bottom d-flex justify-content-end">
+      <a href="{{ url_for('map_view') }}" class="text-decoration-none">
+        <button class="back-to-map">Back to Map</button>
+      </a>
+    </header>
     <main>
       <h1 class="visually-hidden">Modify Account</h1>
       <div class="container col-xl-10 col-xxl-8 px-4 py-5">

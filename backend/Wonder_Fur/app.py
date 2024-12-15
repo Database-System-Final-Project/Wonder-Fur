@@ -175,80 +175,76 @@ def map_view():
     park_collection = db["park_location"]
     park_data = list(park_collection.find({}, {"_id": 0, "Park Name": 1, "address": 1, "latitude": 1, "longitude": 1, "Opening hours": 1}))
 
-    park_layer = folium.FeatureGroup(name="公園地圖")
+    park_layer = folium.FeatureGroup(name="Park")
     for item in park_data:
         try:
             folium.Marker(
                 location=[float(item["latitude"]), float(item["longitude"])],
-                popup=(f"<b>公園名稱:</b> {item['Park Name']}<br>"
-                       f"<b>地址:</b> {item['address']}<br>"
-                       f"<b>營業時間:</b> {item['Opening hours']}<br>"
-                       f"<button onclick=\"saveFavorite('{item['Park Name']}', '{item['address']}')\">收藏</button>"),
                 tooltip=item["Park Name"],
-                icon=folium.Icon(color="green", icon="tree")
+                icon=folium.Icon(color="green", icon="tree"),
+                popup=(f"<b>Park Name:</b> {item['Park Name']}<br>"
+                       f"<b>Address:</b> {item['address']}<br>"
+                       f"<b>Opening Hours:</b> {item['Opening hours']}<br>")
             ).add_to(park_layer)
         except (ValueError, TypeError):
-            print(f"跳過無效公園資料: {item}")
+            print(f"Skipping invalid park data: {item}")
     park_layer.add_to(map_osm)
 
-    # ------ 寵物醫院地圖圖層 ------
+    # Pet Hospital layer
     hospital_collection = db["petHospital_location"]
     hospital_data = list(hospital_collection.find({}, {"_id": 0, "name": 1, "contact phone": 1, "address": 1, "latitude": 1, "longitude": 1}))
 
-    hospital_layer = folium.FeatureGroup(name="寵物醫院地圖")
+    hospital_layer = folium.FeatureGroup(name="Pet Hospital")
     for item in hospital_data:
         try:
             folium.Marker(
                 location=[float(item["latitude"]), float(item["longitude"])],
-                popup=(f"<b>醫院名稱:</b> {item['name']}<br>"
-                       f"<b>聯絡電話:</b> {item['contact phone']}<br>"
-                       f"<b>地址:</b> {item['address']}<br>"
-                       f"<button onclick=\"saveFavorite('{item['name']}', '{item['address']}')\">收藏</button>"),
                 tooltip=item["name"],
-                icon=folium.Icon(color="red", icon="heartbeat")
+                icon=folium.Icon(color="red", icon="heartbeat"),
+                popup=(f"<b>Hospital Name:</b> {item['name']}<br>"
+                       f"<b>Contact Phone:</b> {item['contact phone']}<br>"
+                       f"<b>Address:</b> {item['address']}<br>")
             ).add_to(hospital_layer)
         except (ValueError, TypeError):
-            print(f"跳過無效寵物醫院資料: {item}")
+            print(f"Skipping invalid hospital data: {item}")
     hospital_layer.add_to(map_osm)
 
-    # ------ 垃圾桶地圖圖層 ------
+    # Trashcan layer
     trashcan_collection = db["trashcan_location"]
     trashcan_data = list(trashcan_collection.find({}, {"_id": 0, "address": 1, "latitude": 1, "longitude": 1}))
 
-    trashcan_layer = folium.FeatureGroup(name="垃圾桶地圖")
+    trashcan_layer = folium.FeatureGroup(name="Trashcan")
     for item in trashcan_data:
         try:
             folium.Marker(
                 location=[float(item["latitude"]), float(item["longitude"])],
-                popup=(f"<b>地址:</b> {item['address']}<br>"
-                       f"<button onclick=\"saveFavorite('垃圾桶', '{item['address']}')\">收藏</button>"),
-                tooltip="垃圾桶位置",
-                icon=folium.Icon(color="blue", icon="trash")
+                tooltip="Trashcan Location",
+                icon=folium.Icon(color="blue", icon="trash"),
+                popup=(f"<b>Address:</b> {item['address']}<br>")
             ).add_to(trashcan_layer)
         except (ValueError, TypeError):
-            print(f"跳過無效垃圾桶資料: {item}")
+            print(f"Skipping invalid trashcan data: {item}")
     trashcan_layer.add_to(map_osm)
 
-    # ------ 餐廳地圖圖層 ------
+    # Restaurant layer
     restaurant_collection = db["restaurant_location"]
     restaurant_data = list(restaurant_collection.find({}, {"_id": 0, "Type": 1, "Restaurant Name": 1, "Address": 1, "Business Hours": 1, "Features": 1, "latitude": 1, "longitude": 1}))
 
-    restaurant_layer = folium.FeatureGroup(name="餐廳地圖")
+    restaurant_layer = folium.FeatureGroup(name="Restaurant")
     for item in restaurant_data:
         try:
             folium.Marker(
                 location=[float(item["latitude"]), float(item["longitude"])],
-                popup=(f"<b>餐廳名稱:</b> {item['Restaurant Name']}<br>"
-                       f"<b>地址:</b> {item['Address']}<br>"
-                       f"<b>類型:</b> {item['Type']}<br>"
-                       f"<b>營業時間:</b> {item['Business Hours']}<br>"
-                       f"<b>特色:</b> {item['Features']}<br>"
-                       f"<button onclick=\"saveFavorite('{item['Restaurant Name']}', '{item['Address']}')\">收藏</button>"),
                 tooltip=item["Restaurant Name"],
-                icon=folium.Icon(color="orange", icon="cutlery")
+                icon=folium.Icon(color="orange", icon="cutlery"),
+                popup=(f"<b>Restaurant Name:</b> {item['Restaurant Name']}<br>"
+                       f"<b>Address:</b> {item['Address']}<br>"
+                       f"<b>Type:</b> {item['Type']}<br>"
+                       f"<b>Business Hours:</b> {item['Business Hours']}<br>"
+                       f"<b>Features:</b> {item['Features']}<br>")
             ).add_to(restaurant_layer)
         except (ValueError, TypeError):
-            print(f"跳過無效餐廳資料: {item}")
+            print(f"Skipping invalid restaurant data: {item}")
     restaurant_layer.add_to(map_osm)
 
     # Add layer controls and locate control
@@ -258,51 +254,158 @@ def map_view():
     # Render the map as HTML
     map_html = map_osm._repr_html_()
 
-    # Check login status
-    is_logged_in = 'user_id' in session
+    return render_template('map.html', map_html=map_html)
 
-    return render_template('map.html', map_html=map_html, is_logged_in=is_logged_in)
 
-@app.route('/save_favorite', methods=['POST'])
-def save_favorite():
-    if 'user_id' not in session:
-        return jsonify({'status': 'redirect', 'message': 'Please log in to save favorites.', 'url': url_for('login')})
-    
-    data = request.json
-    user_id = session['user_id']
+'''
+@app.route('/marker_info', methods=['GET'])
+def marker_info():
+    # API to return marker details
+    category = request.args.get('category')
+    name = request.args.get('name')
+    address = request.args.get('address')
+    latitude = request.args.get('latitude')
+    longitude = request.args.get('longitude')
 
-    # 驗證必需字段
-    required_fields = ['category', 'name', 'address', 'latitude', 'longitude']
-    if not all(field in data for field in required_fields):
-        return jsonify({'status': 'error', 'message': 'Missing required fields'})
-
-    # 插入收藏地點到 MongoDB
-    favorite = {
-        "user_id": user_id,
-        "category": data["category"],
-        "name": data["name"],
-        "address": data["address"],
-        "latitude": float(data["latitude"]),
-        "longitude": float(data["longitude"]),
-        "extra": data.get("extra"),  # 可選字段
-        "created_at": datetime.now()  # 新增
-    }
-
-    try:
-        favorites_collection.insert_one(favorite)  # 插入數據
-        return jsonify({'status': 'success', 'message': 'Favorite saved successfully!'})
-    except Exception as err:
-        return jsonify({'status': 'error', 'message': str(err)})
+    return jsonify({
+        'category': category,
+        'name': name,
+        'address': address,
+        'latitude': latitude,
+        'longitude': longitude
+    })
+'''
 
 #@app.route('/introduce')
 #def introduce():
 #    return render_template('introduce.html')
+
+@app.route('/favorites')
+def favorites_view():
+    if 'user_id' not in session:
+        flash('Please log in to view your favorites.', 'warning')
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    favorites = list(favorites_collection.find({"user_id": user_id}))  # 將 Cursor 轉為清單
+
+    return render_template('add_favorites.html', favorites=favorites)
+
+@app.route('/search_favorites', methods=['POST'])
+def search_favorites():
+    if 'user_id' not in session:
+        return jsonify({'status': 'error', 'message': 'Please log in to search.'})
+
+    data = request.json
+    query = data.get('query', '').strip()
+
+    if not query:
+        return jsonify({'status': 'error', 'message': 'Query cannot be empty.'})
+
+    try:
+        # 查詢 MongoDB 地址數據
+        mongo_results = []
+
+        # 公園查詢
+        park_results = db["park_location"].find(
+            {"$or": [
+                {"Park Name": {"$regex": query, "$options": "i"}},
+                {"address": {"$regex": query, "$options": "i"}}
+            ]},
+            {"_id": 0, "Park Name": 1, "address": 1, "longitude": 1, "latitude": 1, "Opening hours": 1}
+        )
+        mongo_results.extend([{
+            "category": "Park",
+            "name": item["Park Name"],
+            "address": item["address"],
+            "longitude": item["longitude"],
+            "latitude": item["latitude"],
+            "extra": {"Opening hours": item.get("Opening hours", "N/A")}
+        } for item in park_results])
+
+        # 寵物醫院查詢
+        hospital_results = db["petHospital_location"].find(
+            {"$or": [{"name": {"$regex": query, "$options": "i"}}, {"address": {"$regex": query, "$options": "i"}}]},
+            {"_id": 0, "name": 1, "address": 1, "longitude": 1, "latitude": 1, "contact phone": 1}
+        )
+        mongo_results.extend([{
+            "category": "Pet Hospital",
+            "name": item["name"],
+            "address": item["address"],
+            "longitude": item["longitude"],
+            "latitude": item["latitude"],
+            "extra": {"contact phone": item.get("contact phone", "N/A")}
+        } for item in hospital_results])
+
+        # 餐廳查詢
+        restaurant_results = db["restaurant_location"].find(
+            {"$or": [{"Restaurant Name": {"$regex": query, "$options": "i"}}, {"Address": {"$regex": query, "$options": "i"}}]},
+            {"_id": 0, "Restaurant Name": 1, "Address": 1, "longitude": 1, "latitude": 1, "Type": 1, "Business Hours": 1, "Features": 1}
+        )
+        mongo_results.extend([{
+            "category": "Restaurant",
+            "name": item["Restaurant Name"],
+            "address": item["Address"],
+            "longitude": item["longitude"],
+            "latitude": item["latitude"],
+            "extra": {
+                "Type": item.get("Type", "N/A"),
+                "Business Hours": item.get("Business Hours", "N/A"),
+                "Features": item.get("Features", "N/A")
+            }
+        } for item in restaurant_results])
+
+        # 垃圾桶查詢
+        trashcan_results = db["trashcan_location"].find(
+            {"address": {"$regex": query, "$options": "i"}},
+            {"_id": 0, "address": 1, "longitude": 1, "latitude": 1}
+        )
+        mongo_results.extend([{
+            "category": "Trashcan",
+            "name": "Trashcan",
+            "address": item["address"],
+            "longitude": item["longitude"],
+            "latitude": item["latitude"]
+        } for item in trashcan_results])
+
+        # 返回結果
+        return jsonify({'status': 'success', 'results': mongo_results})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
+
 
 @app.route('/logout', methods=['POST'])
 def logout():
     session.clear()
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
+
+@app.route('/add_favorite', methods=['POST'])
+def add_favorite():
+    if 'user_id' not in session:
+        return jsonify({'status': 'error', 'message': 'Please log in to add favorites.'})
+
+    data = request.json
+    name = data.get('name')
+    address = data.get('address')
+
+    if not name or not address:
+        return jsonify({'status': 'error', 'message': 'Name and address are required.'})
+
+    user_id = session['user_id']
+    try:
+        # 插入到 MongoDB 的收藏集合
+        favorite = {
+            "user_id": user_id,
+            "name": name,
+            "address": address,
+            "created_at": datetime.now()
+        }
+        favorites_collection.insert_one(favorite)
+        return jsonify({'status': 'success', 'message': 'Favorite added successfully!'})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)})
+    
 
 
 if __name__ == '__main__':
