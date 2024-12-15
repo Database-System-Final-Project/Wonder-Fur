@@ -13,7 +13,7 @@ app.secret_key = 'your_secret_key'
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'zhen41171119H',
+    'password': '',
     'database': 'Wonder_fur'
 }
 
